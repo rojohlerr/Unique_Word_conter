@@ -42,3 +42,5 @@ project-root/
 ├── execute.sh                 # script file to execute the project
 │
 └── .git/
+
+Usage : ./execute.sh <file_name>
