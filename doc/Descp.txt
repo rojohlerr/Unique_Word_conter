@@ -1,0 +1,24 @@
+1. Flow of the application:
+The high-level flow of the app and what each class does would be explained as follows:
+```
+                main.cpp
+                └── FileReader:
+                    └─ Reads a fixed-size chunk from file
+                └── ThreadManager:
+                    └─ Submits each chunk to ThreadPool
+                        └─ Threads run process_chunk in parallel
+                                └─ WordProcessor:
+                                    └─ Parses chunk and adds unique words
+
+2. The main threads actually working as follows
+
+          ->  Threads are created in ThreadPool::ThreadPool()
+
+          ->  Tasks are submitted using ThreadPool::enqueue_task()
+
+          ->  Each task calls WordProcessor::process_chunk()
+
+    Each chunk is processed in a separate thread, managed by the thread pool.
+
+
+
